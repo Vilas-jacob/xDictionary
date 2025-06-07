@@ -18,13 +18,15 @@ function App() {
 ];
 
 const handleSearch = ()=>{
-  dictionary.forEach(dict=>{
-    if(dict.word.toLowerCase()===word.toLowerCase()){
-      setDefinition(dict.meaning);
-    } else{
-      setDefinition("Word not found in the dictionary.");
-    }
-  })
+  //console.log("test");
+  const wordMeaning = dictionary.find(dict=>dict.word.toLowerCase()===word.toLowerCase());
+  //console.log(wordMeaning);
+  if(wordMeaning){
+    setDefinition(wordMeaning.meaning);
+  } else{
+    setDefinition("Word not found in the dictionary.");
+  }
+
 }
 
   return (
